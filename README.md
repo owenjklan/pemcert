@@ -1,12 +1,12 @@
 # pemcert
-Sublime Text 3 plugin for decoding PEM-encoded certificates
+## Sublime Text 3 plugin for decoding PEM-encoded certificates
 If, like me, you find yourself frequently handling certificates as chunks of PEM-encoded text
-- AND -
+  - AND -
 Like me, you also use Sublime Text 3 as your editor of choice...
 
 Then this convenient little plugin might be for you.
 
-## What does it do?
+### What does it do?
 Feed it something like this:
 ```
 -----BEGIN CERTIFICATE-----
@@ -98,3 +98,16 @@ Certificate:
 ```
 
 All in the comfort of a Sublime tab.
+
+### The slightly more technical explanation
+If you have a buffer/tab/view open in Sublime Text 3, and the sole contents of that buffer
+is a PEM-encoded certificate; then with the `decode_pem` command, the contents of that buffer
+are fed into `openssl x509 -in <buffer_temp_file> -noout -text` and then substitued in place
+of the PEM block in the current tab.
+
+## There's more!
+The `clean_up_pem` command is also available. This command is useful when pasting
+PEM blocks copied from the output of other programs. Any escaped newlines
+(ie: literal '\n' in the copied text) are replaced with actual newline characters.
+Leading and trailing whitespace is all stripped out as well. This is usually useful
+just before issuing a `decode_pem` command.
