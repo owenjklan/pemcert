@@ -1,7 +1,7 @@
 # pemcert
 ## Sublime Text 3 plugin for decoding PEM-encoded certificates
 If, like me, you find yourself frequently handling certificates as chunks of PEM-encoded text
-  - AND -
+#### AND
 Like me, you also use Sublime Text 3 as your editor of choice...
 
 Then this convenient little plugin might be for you.
